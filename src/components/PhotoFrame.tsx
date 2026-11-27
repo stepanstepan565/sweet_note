@@ -10,7 +10,11 @@ interface PhotoFrameProps {
 export function PhotoFrame({ src, alt, className = '' }: PhotoFrameProps) {
   const [hasError, setHasError] = useState(false);
 
-  if (hasError || !src) {
+  const resolvedSrc = src.startsWith('/src/assets/')
+    ? `${import.meta.env.BASE_URL}${src.slice(1)}`
+    : src;
+
+  if (hasError || !resolvedSrc) {
     return (
       <div
         className={`flex flex-col items-center justify-center gap-2 rounded-2xl bg-gradient-to-br from-[#F4EAEF] to-[#EBE3DA] p-6 text-center text-[#7A6A70] ${className}`}
@@ -23,7 +27,7 @@ export function PhotoFrame({ src, alt, className = '' }: PhotoFrameProps) {
 
   return (
     <img
-      src={src}
+      src={resolvedSrc}
       alt={alt}
       referrerPolicy="no-referrer"
       onError={() => setHasError(true)}
