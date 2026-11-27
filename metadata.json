@@ -1,0 +1,6 @@
+{
+  "name": "SweetNotes — Динамические QR-послания",
+  "description": "Сервис романтических QR-посланий для конфетных конвертиков с редактором тем, копилкой воспоминаний и печатью QR-листов A4.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
